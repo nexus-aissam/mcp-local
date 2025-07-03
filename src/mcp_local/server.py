@@ -1,5 +1,5 @@
 """
-Main MCP Local server implementation
+Main MCP Local server implementation with system tools
 """
 
 from mcp.server.fastmcp import FastMCP
@@ -7,6 +7,7 @@ from mcp.server.fastmcp import FastMCP
 from .tools.file_operations import register_file_operations
 from .tools.file_editing import register_file_editing_tools
 from .tools.search_tools import register_search_tools
+from .tools.system_tools import register_system_tools
 from .services import backup_service, history_service, file_service
 
 
@@ -25,6 +26,7 @@ def create_server(name: str = "mcp-local") -> FastMCP:
     register_file_operations(mcp)
     register_file_editing_tools(mcp)
     register_search_tools(mcp)
+    register_system_tools(mcp)  # Add the new system tools
     
     # Add a simple data query tool
     @mcp.tool()
